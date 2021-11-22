@@ -24,48 +24,96 @@
       </p>
     </header>
     <main class="col-12 col-lg-9">
-      <div class="m-5">
-        <h2>To Do</h2>
-        <ul id="list-toDo" class="list-group"> </ul>
-      </div>
-    </main>
-  </div>
+      <div class="m-5 row justify-content-around">
+        <!-- todo start -->
+        <div class="col-12 col-md-6 col-xl-3 mb-3">
+          <div class="card">
+            <h4 class="card-header">
+              To Do
+            </h4>
+            <ul id="list-toDo" class="list-group list-group-flush">
+              <li class="list-group-item">
+                <span class="badge badge-primary badge-pill">05/28/2020</span>
+                <p class="m-1">Sample task to do</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-xl-3 mb-3">
+          <div class="card">
+            <h4 class="card-header">
+              In Progress
+            </h4>
+            <ul id="list-toDo" class="list-group list-group-flush">
+              <li class="list-group-item">
+                <span class="badge badge-primary badge-pill">05/28/2020</span>
+                <p class="m-1">Sample task to do</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-xl-3 mb-3">
+          <div class="card">
+            <h4 class="card-header">
+              In review
+            </h4>
+            <ul id="list-toDo" class="list-group list-group-flush">
+              <li class="list-group-item">
+                <span class="badge badge-primary badge-pill">05/28/2020</span>
+                <p class="m-1">Sample task to do</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-xl-3 mb-3">
+          <div class="card">
+            <h4 class="card-header">
+              Done
+            </h4>
+            <ul id="list-toDo" class="list-group list-group-flush">
+              <li class="list-group-item">
+                <span class="badge badge-primary badge-pill">05/28/2020</span>
+                <p class="m-1">Sample task to do</p>
+              </li>
+            </ul>
+          </div>
+        </div>
 
-  <!-- Modal -->
-  <div class="modal fade" id="task-form-modal" tabindex="-1" role="dialog" aria-labelledby="task-form-modal"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="task-form-modal">Add New Task</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="form-group">
-              <label for="modalTaskDescription">Task description</label>
-              <textarea id="modalTaskDescription" rows="3"></textarea>
+      <!-- Modal -->
+      <div class="modal fade" id="task-form-modal" tabindex="-1" role="dialog" aria-labelledby="task-form-modal"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="task-form-modal">Add New Task</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
             </div>
-            <div class="form-group">
-              <label for="modalDueDate">Due date</label>
-              <input type="text" id="modalDueDate" placeholder="mm/dd/yyyy" autocomplete="off" />
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <label for="modalTaskDescription">Task description</label>
+                  <textarea id="modalTaskDescription" rows="3" class="form-contorl"></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="modalDueDate">Due date</label>
+                  <input type="text" class="form-control" id="modalDueDate" placeholder="mm/dd/yyyy" autocomplete="off" />
+                </div>
+              </form>
             </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save Task</button>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save Task</button>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  <script src="./assets/js/script.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+      <script src="./assets/js/script.js"></script>
 </body>
 
 </html>
