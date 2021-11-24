@@ -45,7 +45,67 @@ var saveTasks = function () {
   localStorage.setItem("tasks", JSON.stringify(tasks));
 };
 
+$(".card .list-group").sortable({
+  connectWith: $(".card .list-group"),
+  scroll: false,
+  tolerance: "pointer",
+  helper: "clone",
+  actvate: function (event, ui) {
+    console.log("ui");
+  },
+  deactivate: function (event, ui) {
+    console.log(ui);
+  },
+  over: function (event) {
+    console.log(event);
+  },
+  out: function (event) {
+    console.log(event);
+  },
 
+  update: function () {
+    var tempArr = [];
+
+    $(this).children().each(function () {
+      tempArr.push({
+        text: $(this)
+          .find("p")
+          .text()
+          .trim(),
+        date: $(this)
+          .find("span")
+          .text()
+          .trim()
+      });
+    });
+    // trim down list's ID to match object property
+    var arrName = $(this)
+      .attr("id")
+      .replace("list-", "");
+
+    // update array on tasks object and save
+    tasks[arrName] = tempArr;
+    saveTasks();
+  },
+  stop: function(event) {
+    $(this).removeClass("dropover");
+  }
+});
+
+$("#trash").droppable({
+  accept: ".card .list-group-item",
+  tolerance: "touch",
+  drop: function (event, ui) {
+    ui.draggable.remove();
+
+  },
+  over: function (event, ui) {
+    console.log("over");
+  },
+  out: function (event, ui) {
+    console.log("out");
+  }
+});
 
 
 // modal was triggered
@@ -91,66 +151,9 @@ $("#remove-tasks").on("click", function () {
   saveTasks();
 });
 
-$(".card .list-group").sortable({
-  connectWith: $(".card .list-group"),
-  scroll: false,
-  tolerance: "pointer",
-  helper: "clone",
-  actvate: function (event) {
-    console.log("activate, this");
-  },
-  deactivate: function (event) {
-    console.log("deactivate", this);
-  },
-  over: function (event) {
-    console.log("over", event.target);
-  },
-  out: function (event) {
-    console.log("out", event.target);
-  },
-  update: function (event) {
-    $(this).children().each(function () {
-      var text = $(this)
-        .find("p")
-        .text()
-        .trim();
 
-      var date = $(this)
-        .find("span")
-        .text()
-        .trim();
 
-      tempArr.push({
-        text: text,
-        date: date
-      })
-    });
-    // trim down list's ID to match object property
-    var arrName = $(this)
-      .attr("id")
-      .replace("list-", "");
 
-    // update array on tasks object and save
-    tasks[arrName] = tempArr;
-    saveTasks();
-    console.log(tempArr);
-  },
-});
-
-$("#trash").droppable({
-  accept: ".card .list-group-item",
-  tolerance: "touch",
-  drop: function(event, ui) {
-    ui.draggable.remove();
-
-  },
-  over: function(event, ui) {
-    console.log("over");
-  },
-  out: function(event, ui) {
-    console.log("out");
-  }
-});
 
 // load tasks for the first time
 loadTasks();
